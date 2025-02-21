@@ -25,7 +25,7 @@ interface FormValues {
 
 const MusicRegistrationForm: React.FC<MusicRegistrationFormProps> = () => {
   const router = useRouter();
-  const { user } = useUser();
+//   const { user } = useUser();
   const { register, handleSubmit, watch, reset } = useForm<FormValues>({
     defaultValues: {
       name: "",
@@ -58,33 +58,33 @@ const MusicRegistrationForm: React.FC<MusicRegistrationFormProps> = () => {
         return;
       }
 
-      if (!user) {
-        toast.error("User not logged in");
-        return;
-      }
+    //   if (!user) {
+    //     toast.error("User not logged in");
+    //     return;
+    //   }
 
-      await uploadFiles(songFile, imageFile, values.symbol, values.name, user.id);
+    //   await uploadFiles(songFile, imageFile, values.symbol, values.name, user.id);
 
-      const { error } = await supabaseClient
-        .from<Song>("songs")
-        .insert([
-          {
-            id: crypto.randomUUID(),
-            user_id: user.id,
-            author: values.name,
-            title: values.symbol,
-            song_path: values.uri,
-            image_path: "",
-          },
-        ]);
+    //   const { error } = await supabaseClient
+    //     .from<Song>("songs")
+    //     .insert([
+    //       {
+    //         id: crypto.randomUUID(),
+    //         user_id: user.id,
+    //         author: values.name,
+    //         title: values.symbol,
+    //         song_path: values.uri,
+    //         image_path: "",
+    //       },
+    //     ]);
 
-      if (error) {
-        toast.error(error.message);
-      } else {
+    //   if (error) {
+    //     toast.error(error.message);
+    //   } else {
         toast.success("Music registered successfully!");
         reset();
         router.push("app/(site)/page");
-      }
+    //   }
     } catch (error: any) {
       toast.error(`Something went wrong: ${error.message}`);
     }

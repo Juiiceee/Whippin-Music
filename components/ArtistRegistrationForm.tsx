@@ -32,19 +32,19 @@ const ArtistRegistrationForm: React.FC<ArtistRegistrationFormProps> = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Here you would make your API request to register the artist integrate HERE
-      const { error } = await supabaseClient.from("artists").insert({
-        is_artist: values.isArtist,
-        main_name: values.mainName,
-        main_type: values.mainType,
-      });
+    //   const { error } = await supabaseClient.from("artists").insert({
+    //     is_artist: values.isArtist,
+    //     main_name: values.mainName,
+    //     main_type: values.mainType,
+    //   });
 
-      if (error) {
-        toast.error(error.message);
-      } else {
-        toast.success("Artist registered successfully!");
-        reset();
-        router.push("app/(site)/page");
-      }
+    //   if (error) {
+    //     toast.error(error.message);
+    //   } else {
+    //     toast.success("Artist registered successfully!");
+    //     reset();
+    //     router.push("app/(site)/page");
+    //   }
     } catch (error: any) {
       toast.error(`Something went wrong: ${error.message}`);
     }

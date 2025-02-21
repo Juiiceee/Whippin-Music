@@ -17,7 +17,7 @@ const UploadModal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const uploadModal = useUploadModal();
-  const { user } = useUser();
+//   const { user } = useUser();
   const router = useRouter();
 
   const { register, handleSubmit, reset } = useForm<FieldValues>({
@@ -44,15 +44,15 @@ const UploadModal = () => {
       const imageFile = values.image?.[0];
       const songFile = values.song?.[0];
 
-      if (!imageFile || !songFile || !user) {
-        toast.error("Missing fields");
-        return;
-      }
+    //   if (!imageFile || !songFile || !user) {
+    //     toast.error("Missing fields");
+    //     return;
+    //   }
 
       console.log("Form values:", values);
       console.log("Starting upload process");
 
-      await uploadFiles(songFile, imageFile, values.title, values.author, user.id);
+    //   await uploadFiles(songFile, imageFile, values.title, values.author, user.id);
 
       setIsLoading(false);
       toast.success("Files uploaded successfully!");

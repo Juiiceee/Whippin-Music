@@ -15,15 +15,15 @@ interface LikedContentProps {
 
 const LikedContent: React.FC<LikedContentProps> = ({ songs }) => {
   const router = useRouter()
-  const { isLoading, user } = useUser()
+//   const { isLoading, user } = useUser()
 
   const onPlay = useOnPlay(songs)
 
-  useEffect(() => {
-    if (!isLoading && !user) {
-      router.replace("/")
-    }
-  }, [isLoading, user, router])
+//   useEffect(() => {
+//     if (!isLoading && !user) {
+//       router.replace("/")
+//     }
+//   }, [isLoading, user, router])
 
   if (songs.length === 0) {
     return (

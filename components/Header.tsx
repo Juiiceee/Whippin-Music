@@ -29,10 +29,10 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const [balance, setBalance] = useState<string | null>(null);
 
   const player = usePlayer()
-  const authModal = useAuthModal()
+//   const authModal = useAuthModal()
   const router = useRouter()
-  const supabaseClient = useSupabaseClient()
-  const { user } = useUser()
+//   const supabaseClient = useSupabaseClient()
+//   const { user } = useUser()
 
   useEffect(() => {
     const init = async () => {
@@ -92,31 +92,11 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           </button>
         </div>
         <div className="flex justify-between items-center gap-x-4">
-          {user ? (
-            <div className="flex gap-x-4 items-center">
-              <Button onClick={handleLogout} className="bg-white px-6 py-2">
-                Logout
-              </Button>
-              <Button onClick={() => router.push('/account')} className="bg-white">
-                <FaUserAlt />
-              </Button>
-            </div>
-          ) : (
             <>
-              <div>
-                <Button onClick={authModal.onOpen} className="bg-transparent text-neutral-300 font-medium">
-                  Sign up
-                </Button>
-              </div>
-              <div>
-                <Button onClick={handleLoginClick} className="bg-white px-6 py-2">
-                  Log in
-                </Button>
-              </div>
+			
               {address && <p>Connected as: {address}</p>}
               {balance && <p>Balance: {balance} ETH</p>}
             </>
-          )}
         </div>
       </div>
       {children}

@@ -13,16 +13,16 @@ interface LibraryProps {
 }
 
 const Library = ({ songs }: LibraryProps) => {
-  const authModal = useAuthModal()
+//   const authModal = useAuthModal()
   const uploadModal = useUploadModal()
-  const { user, subscription } = useUser()
+//   const { user, subscription } = useUser()
 
   const onPlay = useOnPlay(songs)
 
   const onClick = () => {
-    if (!user) {
-      return authModal.onOpen()
-    }
+    // if (!user) {
+    // //   return authModal.onOpen()
+    // }
     return uploadModal.onOpen()
   }
 

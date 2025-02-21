@@ -19,41 +19,34 @@ export interface Props {
 }
 
 export const MyUserContextProvider = (props: Props) => {
-  const supabaseClient = createClientComponentClient()
-  const supaUser = useSupaUser()
+//   const supabaseClient = createClientComponentClient()
+//   const supaUser = useSupaUser()
   const { session, isLoading: isLoadingSession } = useSessionContext()
-  const user = supaUser as User | null
+//   const user = supaUser as User | null
 
   const [isLoadingData, setIsLoadingData] = useState(false)
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null)
 
-  const getUserDetails = () => supabaseClient
-    .from('users')
-    .select('*')
-    .single()
+//   const getUserDetails = () => supabaseClient
+    // .from('users')
+    // .select('*')
+    // .single()
 
-  useEffect(() => {
-    if (user && !isLoadingData && !userDetails) {
-      setIsLoadingData(true)
-      getUserDetails().then(({ data, error }) => {
-        if (data) {
-          setUserDetails(data)
-        }
-        setIsLoadingData(false)
-      })
-    } else if (!user && !isLoadingSession && !isLoadingData) {
-      setUserDetails(null)
-    }
-  }, [user, isLoadingSession])
+//   useEffect(() => {
+//     if (user && !isLoadingData && !userDetails) {
+//       setIsLoadingData(true)
+//       getUserDetails().then(({ data, error }) => {
+//         if (data) {
+//           setUserDetails(data)
+//         }
+//         setIsLoadingData(false)
+//       })
+//     } else if (!user && !isLoadingSession && !isLoadingData) {
+//       setUserDetails(null)
+//     }
+//   }, [user, isLoadingSession])
 
-  const value = {
-    accessToken: session?.access_token ?? null,
-    user,
-    userDetails,
-    isLoading: isLoadingSession || isLoadingData,
-  }
-
-  return <UserContext.Provider value={value} {...props} />
+  return <UserContext.Provider value={undefined} {...props} />
 }
 
 export const useUser = () => {

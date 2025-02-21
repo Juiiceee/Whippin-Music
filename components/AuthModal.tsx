@@ -14,37 +14,37 @@ import { useUser } from "@/hooks/useUser"
 
 
 const AuthModal: React.FC = () => {
-  const { isOpen, onClose } = useAuthModal()
-  const { user } = useUser()
-  const supabaseClient = useSupabaseClient()  
-  useEffect(() => {
-    if (user) {
-      onClose()
-    }
-  }, [user, onClose])
+//   const { isOpen, onClose } = useAuthModal()
+//   const { user } = useUser()
+//   const supabaseClient = useSupabaseClient()  
+//   useEffect(() => {
+    // if (user) {
+    //   onClose()
+    // }
+//   }, [user, onClose])
 
   return (
-    <Modal isOpen={isOpen} onChange={onClose} title="Login" description="Please login to continue">
+    // <Modal isOpen={isOpen} onChange={onClose} title="Login" description="Please login to continue">
 
-      <Auth
-        supabaseClient={supabaseClient}
-        providers={["google","discord","linkedin"]}
-        redirectTo={getURL()}
-        magicLink={true}
-        appearance={{
-          theme: ThemeSupa,
-          variables: {
-            default: {
-              colors: {
-                brand: "#404040",
-                brandAccent: "#7700ff",
-              },
-            },
-          },
-        }}
-        theme="dark"
-      />
-    </Modal>
+    //   <Auth
+    //     supabaseClient={supabaseClient}
+    //     providers={["google","discord","linkedin"]}
+    //     redirectTo={getURL()}
+    //     magicLink={true}
+    //     appearance={{
+    //       theme: ThemeSupa,
+    //       variables: {
+    //         default: {
+    //           colors: {
+    //             brand: "#404040",
+    //             brandAccent: "#7700ff",
+    //           },
+    //         },
+    //       },
+    //     }}
+    //     theme="dark"
+    //   />
+    // </Modal>
   )
 }
 

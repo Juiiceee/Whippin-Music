@@ -16,7 +16,7 @@ interface PurchaseModalProps {
 
 const PurchaseModal: React.FC<PurchaseModalProps> = ({ songId, onSuccess }) => {
   const purchaseModal = usePurchaseModal();
-  const { user } = useUser();
+//   const { user } = useUser();
 
   const { handleSubmit, reset } = useForm();
 

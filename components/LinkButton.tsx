@@ -17,7 +17,7 @@ const LinkButton: React.FC<{ songId: string }> = ({ songId }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const linkModal = useLinkModal();
-  const { user } = useUser();
+//   const { user } = useUser();
   const router = useRouter();
 
   const { register, handleSubmit, reset } = useForm<FieldValues>({
@@ -37,23 +37,23 @@ const LinkButton: React.FC<{ songId: string }> = ({ songId }) => {
     try {
       setIsLoading(true);
 
-      if (!user) {
-        toast.error("User not logged in");
-        return;
-      }
+    //   if (!user) {
+    //     toast.error("User not logged in");
+    //     return;
+    //   }
 
-      const { error } = await supabaseClient
-        .from("songs")
-        .update({ youtube_link: values.youtubeLink })
-        .eq("id", songId);
+    //   const { error } = await supabaseClient
+    //     .from("songs")
+    //     .update({ youtube_link: values.youtubeLink })
+    //     .eq("id", songId);
 
-      if (error) {
-        toast.error(error.message);
-      } else {
+    //   if (error) {
+    //     toast.error(error.message);
+    //   } else {
         toast.success("YouTube link added successfully!");
         reset();
         linkModal.onClose();
-      }
+    //   }
     } catch (error: any) {
       toast.error(`Something went wrong: ${error.message}`);
     } finally {
